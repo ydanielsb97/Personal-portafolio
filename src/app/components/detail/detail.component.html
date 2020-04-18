@@ -1,0 +1,93 @@
+<div class="container2">
+	<!--Título-->
+	<span  *ngIf="!editClic.name">
+		<h2 id="titleDetail">
+			{{project.name}} 
+			<a (click)="activeEditName()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/editar.png"/></a>
+		</h2>
+	</span>
+
+	<div id="editName" *ngIf="editClic.name">
+		<input type="text" [(ngModel)]='project.name'/>
+		<a (click)="activeEditName()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/check.png"/></a>
+	</div>
+
+	<!--Description y Botones-->
+	<p *ngIf="!editClic.description">
+		{{project.description}}
+		<a (click)="activeEditDescription()">
+			<img *ngIf="editMode" id="editarTitulo" src="../../assets/img/editar.png"/>
+		</a>
+	<a class= "button-save" (click)="saveChanges()" *ngIf="editMode"> GUARDAR</a>
+	<a class="button-edit" (click)="editModeOn()" *ngIf="!editMode">Editar</a>
+	<a class="button-delete" (click)="deleteProject(id)">Borrar</a>
+	</p>
+	<div id="editDescription" *ngIf="editClic.description">
+		<input type="text" [(ngModel)]='project.description'/>
+		<a (click)="activeEditDescription()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/check.png"/></a>
+	</div>
+
+	<!--Ficha-->
+
+	<!--ngStyle = "{'PROPIEDAD': CONDICIÓN ? 'VALOR EN CASO DE QUE SE CUMPLA':' VALOR EN CASO CONTRARIO (else)'}"-->
+	<div class="ficha">
+	
+
+	
+
+	<img *ngIf="!editMode" src="{{url+'get-image/'+project.image}}"/>
+	<input *ngIf= "editMode" id="image" type="file" name="image" #image="ngModel" [(ngModel)]="project.image" (change)="fileChangeEvent($event)">
+	<a *ngIf="editMode"><img id="imagenSubir" src="../../assets/img/subir.png"/></a>
+	<p><strong>Cliente: </strong><span class="datosFicha" *ngIf="!editClic.nameClient">{{project.nameClient}}</span><a (click)="activeEditClient()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/editar.png"></a>
+	</p>
+
+	<div id="editnameClient" *ngIf="editClic.nameClient">
+		<input type="text" [(ngModel)]='project.nameClient'/>
+		<a (click)="activeEditClient()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/check.png"/></a>
+	</div>
+
+	<p><strong>Fecha de inicio:</strong><span class="datosFicha" *ngIf="!editClic.dateStart">{{project.dateStart}}</span><a (click)="activeEditdateStart()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/editar.png"></a></p>
+
+	<div id="editdateStart" *ngIf="editClic.dateStart">
+		<input type="text" [(ngModel)]='project.dateStart'/>
+		<a (click)="activeEditdateStart()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/check.png"/></a>
+	</div>
+
+	<p><strong>Tiempo de compromiso: </strong><span class="datosFicha" *ngIf="!editClic.limitTime">{{project.limitTime}}</span>
+		<a (click)="activeEditlimitTime()">
+			<img *ngIf="editMode" id="editarTitulo" src="../../assets/img/editar.png">
+		</a>
+	</p>
+
+	<div id="editlimitTime" *ngIf="editClic.limitTime">
+		<input type="text" [(ngModel)]='project.limitTime'/>
+		<a (click)="activeEditlimitTime()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/check.png"/></a>
+	</div>
+
+
+	<p><strong>Lenguajes a utilizar: </strong><span class="datosFicha" *ngIf="!editClic.langs">{{project.langs}}</span><a (click)="activeEditlangs()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/editar.png"></a></p>
+
+	<div id="editLangs" *ngIf="editClic.langs">
+		<input type="text" [(ngModel)]='project.langs'/>
+		<a (click)="activeEditlangs()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/check.png"/></a>
+	</div>
+
+
+
+	</div>
+
+
+
+	<div class="textDetail">
+		<p><span *ngIf="!editClic.details">{{project.details}}</span><a (click)="activeEditDetails()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/editar.png"></a></p>
+	
+
+	<div id="editdetails" *ngIf="editClic.details">
+		<textarea type="text" [(ngModel)]='project.details'></textarea>
+		<a (click)="activeEditDetails()"><img *ngIf="editMode" id="editarTitulo" src="../../assets/img/check.png"/></a>
+	</div>
+
+	</div>
+
+
+</div>

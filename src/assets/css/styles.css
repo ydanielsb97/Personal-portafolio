@@ -1,0 +1,513 @@
+/*Importar fuentes custom*/
+@font-face{
+	font-family: "yanone";
+	src: url("fonts/yanone.ttf");
+}
+
+@font-face{
+	font-family: "finger";
+	src: url("fonts/finger.ttf");
+}
+
+/*Generales*/
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	font-family: "yanone", Arial, Helvetica;
+	font-size: 20px;
+	background: url("../img/pattern.png"); /*De esta forma se agrega imagen de fondo*/
+	background-attachment: fixed; /*Hace que el fondo no se mueva con el scroll*/
+}
+
+.clearfix{
+	float:none;
+	clear:both;
+}
+
+/*Barra de navegacion / cabecera */
+
+header{
+	display: block;
+	width: 100%;
+	height: 90px;
+	background: rgba(53, 103, 164, 0.8);
+	position: fixed; /*Con esto la barra se quedara visible al hacer scroll*/
+	text-transform: uppercase;/*Para que todos sus elementos estén en mayúsculas*/
+}
+
+header ul{
+	display: block;
+	width: 40%;
+	height: inherit;/*inherit Significa que está herdado del padre*/
+	margin: 0px auto;
+	margin-top: -3px;
+}
+
+header ul li{
+	display: inline-block; /*Para que se pongan uno al lado del otro los elementos*/
+	margin: 0px auto;
+	text-align: center;
+	line-height: 88px;
+}
+
+header a{
+	display: block;
+	padding-right: 20px;
+	padding-left: 20px;
+	height: inherit;
+	text-decoration: none;/*Para que no tenga subrayado*/
+	color: white;
+	transition: all 300ms; /*Para que haga un efecto al hacer mouseOver*/
+}
+
+header a:hover,
+.actived{
+	background: rgba(0,0,0,0.8);
+}
+
+/*Logotipo*/
+header #logo a:hover{
+	background: transparent;
+	color: black;
+	transform: scale(1.50, 1.50);/*Es para multiplicar el tamaño,
+	el primer parámetro es para el x y el segundo para el y.
+	En este casi escala el tamaño un 50% de largo y de ancho*/
+}
+
+#logo a{
+	transition: color 500ms, transform 500ms;
+}
+
+#logo{
+	font-family: "finger";
+	font-size: 30px;
+}
+
+/*Contenedor Principal*/
+
+#content{
+	min-height: 700px;
+	height: auto;
+	width: 75%;
+	margin: 0px auto; /*Para que se centre*/
+	box-shadow: 0px 0px 40px black; /*los 40px es para que se difumine el color*/
+	border-left: 1px solid #b7b7b7;
+	border-right: 1px solid #b7b7b7;
+	background: rgba(255, 255, 255, 0.7);
+	padding-top: 120px;
+	overflow: auto;
+
+}
+
+/*Pie de página*/
+
+footer{
+	width:75%;
+	margin: 0px auto;
+	padding-top: 15px;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+/*Sobre mí*/
+
+#title{
+	margin: 0px auto;
+	width: 65%;
+	text-align: center;
+	padding-bottom: 70px;
+	padding-top: 20px;
+}
+
+#title h1{
+	font-family: "finger";
+	font-size: 70px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 5px;
+}
+
+#title h2{
+	color:gray;
+	font-size: 25px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#title p{
+	color:gray;
+}
+
+/*Tambien lo podemos llamar con .about simplemente*/
+article.about{
+	width: 65%;
+	font-size: 23px;
+	margin-bottom: 20px;
+	margin: 0px auto;
+}
+
+article.about h2{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+article.about p{
+	padding-top: 20px;
+	padding-bottom: 30px;
+	text-align: justify;
+}
+
+/*Sección con formulario*/
+.container{
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin: 0px auto;
+}
+
+.container h2{
+	display:block;
+	width: 90%;
+	margin: 0px auto;
+	font-size: 50px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+	padding-left: 25px;
+}
+
+.container ul{
+	margin-left: 50px;
+}
+
+.container li{
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 230px;
+	height: 200px;
+	margin-bottom:20px;
+
+}
+
+.container2{
+	width: 90%;
+	padding: 50px;
+	padding-top: 0px;
+	padding-left: 20px;
+}
+
+.datosFicha{
+	float: right;
+}
+
+
+form{
+	width: 80%;
+	margin-left: 50px;
+}
+
+form label{
+	display: block;
+	width: 100%;
+}
+
+/*Entre corchetes ponemos la propiedad -
+específica que queramos llamar*/
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form textarea{
+	width: 40%;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+/*Cursor pointer para que se ponga el dedo al hacer over*/
+form button,
+form input[type="submit"],
+form input[type="button"]{
+	float:left;
+	display: block;
+	padding: 15px;
+	margin-top: 10px;
+	color: white;
+	background:rgba(53, 103, 164, 1);
+	border: 1px solid rgba(2, 65, 142, 1); 
+	cursor: pointer;
+
+}
+
+form input[type="button"]{
+	margin-left: 15px;
+}
+
+form button:hover,
+form input[type="submit"]:hover{
+	background:rgba(53, 103, 164, 0.8);
+	border: 1px solid rgba(2, 65, 142, 1); 
+
+}
+
+
+form input[disabled]{
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.form_error{
+	font-size: 13px;
+	padding: 3px;
+	background: red;
+	color: white;
+	margin-left: 5px;
+}
+
+.message{
+	width: 50%;
+}
+
+.message a{
+	color:white;
+}
+
+.success{
+	padding-left: 5px;
+    margin-left: 46px;
+	background: green;
+	color: white;
+}
+
+.failed{
+	padding-left: 5px;
+    margin-left: 46px;
+	background: red;
+	color: white;
+}
+
+/*Página de projecto*/
+
+
+/*UNA MASCARA es un div que recorta lo que salga de el */
+
+
+.project{
+	display:block;
+	list-style: none;
+	float: left;
+	width: 24%;
+	text-align: center;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 30px;
+	transition: 30ms;
+}
+
+.project:hover{
+	opacity: 0.7;
+}
+.project img{
+	width: 100%;
+}
+
+.image{
+	width: 100%;
+	height: 120px;
+	overflow: hidden;
+}
+
+.project a{
+	text-decoration: none;
+	color: black;
+}
+
+/*Página de detalles*/
+
+#titleDetail{
+	margin: 0px auto;
+	font-weight: bold;
+	font-size: 45px;
+	border-bottom: 1px solid black;
+}
+
+.ficha{
+	float: left;
+	width: 300px;
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.ficha img{
+	width: 300px;
+	height: 100%;
+}
+
+.ficha p{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	text-align: justify;
+	padding-top: 5px;
+	padding-bottom: 5px
+}
+
+.textDetail{
+	float: left;
+	max-height: 460px;
+	max-width: 580px;
+	margin-top: 20px;
+	margin-left: 15px;
+	padding-left: 10px; 
+	border-left: 1px solid black;
+
+}
+
+/*EDICION*/
+
+#editarTitulo{
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+	cursor: pointer;
+	transition: 50ms;
+}
+
+#editarTitulo:hover{
+	transform: scale(1.5, 1.5);
+}
+
+#editName input{
+	width: 400px;
+	height: 50px;
+	font-size: 30px;
+}
+
+
+.button-edit{
+	text-decoration:none;
+	width: 50px;
+	background: rgb(37, 4, 220);
+	color: white;
+	font-size: 20px;
+	float: right;
+	text-align: center;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 4px;
+	transition: 100ms;
+	cursor: pointer;
+	border: 1px solid darkblue;
+
+}
+
+.button-delete{
+	text-decoration:none;
+	width: 50px;
+	background: red;
+	color: white;
+	font-size: 20px;
+	float: right;
+	text-align: center;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 4px;
+	transition: 100ms;
+	cursor: pointer;
+	border: darkred;
+}
+
+.button-save{
+	text-decoration:none;
+	width: 100px;
+	background: green;
+	color: white;
+	font-size: 20px;
+	float: right;
+	text-align: center;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 4px;
+	transition: 100ms;
+	cursor: pointer;
+	border: 1px solid darkgreen;
+}
+
+.button-edit:hover,
+.button-delete:hover,
+.button-save:hover{
+	transform:scale(1.20, 1.20);
+	font-weight: bold; /* Negrita */
+	box-shadow: 0px 0px 10px black; /*los 40px es para que se difumine el color*/
+}
+
+#editdetails textarea{
+	float: left;
+	min-height: 100px;
+	min-width: 580px;
+	margin-top: 20px;
+	margin-left: 15px;
+	padding-left: 10px; 
+	border-left: 1px solid black;
+}
+
+#imagenSubir{
+	width: 250px;
+    height: 250px;
+    margin-left: 20px;
+}
+
+/*CONTACTO*/
+
+.containerContacts{
+	margin-top: 70px;
+	margin-left: 100px;
+	height: 400px;
+	transition: 400ms;
+}
+
+.divs{
+	display: block;
+	float:left;
+	height: 250px;
+}
+
+#facebook{
+	padding-top: 25px;
+	line-height: 250px;
+	float:left;
+	width: 200px;
+	height: 200px;
+	transition: 400ms;
+}
+
+#linkedin,
+#gmail{
+	padding-top: 25px;
+	line-height: 250px;
+	float:left;
+	margin-left: 70px;
+	width: 200px;
+	height: 200px;
+	transition: 400ms;
+}
+
+#facebook:hover{
+	padding-top: 0px;
+}
+
+#linkedin:hover,
+#gmail:hover{
+	padding-top: 0px;
+}
+
+#contactTitle h2{
+	margin-left: 90px;
+	width: 80%;
+	font-family: "finger", Arial;
+	font-size: 50px;
+	margin-top: 40px;
+	text-align: center;
+	border-bottom: 1px solid gray;
+}

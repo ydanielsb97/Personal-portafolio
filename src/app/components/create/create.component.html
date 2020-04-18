@@ -1,0 +1,83 @@
+<div class="container">
+	<h2>{{title}}</h2>
+
+	<div class="message success" *ngIf="status == 'success'">
+		El formulario ha sido enviado correctamente, puedes <a [routerLink]="['/proyecto/', save_project._id]">verlo aquí</a>
+	</div>
+
+	<div class="message failed" *ngIf="status == 'failed'">
+		El proyecto NO HA SIDO ENVIADO, favor revisar campos
+	</div>
+
+	<form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)" *ngIf="page == 1">
+		<p>
+		<label for="name">Nombre</label>
+		<input type="text" name="name" #name="ngModel" [(ngModel)]="project.name" required>
+		<span *ngIf="name.touched && !name.valid" class="form_error">El nombre es obligatorio</span>
+		</p>
+		
+		
+		<p>
+		<label for="description">Descripción</label>
+		<textarea type="text" name="description" #description="ngModel" [(ngModel)]="project.description" required> </textarea>
+		<span *ngIf="description.touched && !description.valid" class="form_error">La descripción es obligatorio</span>
+		</p>
+
+		<p>	
+		<label for="category">Categoría</label>
+		<input type="text" name="category" #category="ngModel" [(ngModel)]="project.category" required>
+		<span *ngIf="category.touched && !category.valid" class="form_error">la categoría es obligatorio</span>
+		</p>
+
+		<p>
+		<label for="year">Año de lanzamiento</label>
+		<input type="number" name="year" #year="ngModel"[(ngModel)]="project.year" required>
+		<span *ngIf="year.touched && !year.valid" class="form_error">El año es obligatorio</span>
+		</p>
+
+		<p>
+		<label for="langs">Lenguajes utilizados</label>
+		<input type="text" name="langs" #langs="ngModel"[(ngModel)]="project.langs" required>
+		<span *ngIf="langs.touched && !langs.valid" class="form_error">Los lenguajes son obligatorios</span>
+		</p>
+
+		<p>
+		<label for="image">Imagen representativa</label>
+		<input id="image" type="file" name="image" #image="ngModel" [(ngModel)]="project.image" (change)="fileChangeEvent($event)" required>
+		<span *ngIf="image.touched && !image.valid" class="form_error">La imagen es obligatoria</span>
+		</p>
+		
+		<input type="submit" value="Siguiente" [disabled]="!projectForm.form.valid">	
+	</form>
+
+	<form #project1Form="ngForm" (ngSubmit)="onSubmit(project1Form)" *ngIf="page == 2">
+
+		<p>
+		<label for="nameClient">Nombre Del Cliente</label>
+		<input type="text" name="nameClient" #nameClient="ngModel" [(ngModel)]="project.nameClient" required>
+		<span *ngIf="nameClient.touched && !nameClient.valid" class="form_error">El nombre es obligatorio</span>
+		</p>
+
+		<p>
+		<label for="dateStart">Fecha de inicio</label>
+		<input type="text" name="dateStart" #dateStart="ngModel" [(ngModel)]="project.dateStart" required>
+		<span *ngIf="dateStart.touched && !dateStart.valid" class="form_error">La Fecha es Obligatoria</span>
+		</p>
+
+		<p>
+		<label for="limitDate">Tiempo de Compromiso</label>
+		<input type="text" name="limitDate" #limitDate="ngModel" [(ngModel)]="project.limitTime" required>
+		<span *ngIf="limitDate.touched && !limitDate.valid" class="form_error">El Tiempo de compromiso es obligatorio</span>
+		</p>
+
+		<p>
+		<label for="details">Objetivos específicos</label>
+		<textarea type="text" name="details" #details="ngModel" [(ngModel)]="project.details" required> </textarea>
+		<span *ngIf="details.touched && !details.valid" class="form_error">Los objetivos son obligatorios</span>
+		</p>
+
+		<input type="submit" value="Enviar" [disabled]="!project1Form.form.valid">
+		<input type="button" value="Atrás" (click)="Back()">
+	</form>
+
+</div>
