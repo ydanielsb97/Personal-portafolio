@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~9.0.7",
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-alertify": "^1.0.2",
     "rxjs": "~6.5.4",
     "rxjs-compat": "^6.5.4",
